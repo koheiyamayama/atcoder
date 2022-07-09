@@ -6,5 +6,7 @@ fn main() {
         s: String
     }
 
-    for i in 0..i {}
+    for i in 0..n {
+        
+    }
 }

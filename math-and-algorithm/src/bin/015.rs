@@ -2,26 +2,27 @@ use proconio::input;
 
 fn main() {
     input! {
-        mut a: isize,
-        mut b: isize
+        mut a: usize,
+        mut b: usize
     }
 
-    let mut is_zero = false;
-    while !is_zero {
-        if a <= b {
-            b = b % a;
-        } else {
-            a = a % b;
-        }
+    println!("{}", gcd(a, b))
+}
 
-        if a == 0 || b == 0 {
-            is_zero = true
-        }
-    }
+fn gcd(a: usize, b: usize) -> usize {
+    let mut r: usize = 0;
+
+    if a == 0 {
+        return b;
+    } else if b == 0 {
+        return a;
+    }    
 
     if a <= b {
-        print!("{}", b)
+        r = b % a;
+        return gcd(a, r)
     } else {
-        print!("{}", a)
+        r = a % b;
+        return gcd(r, b)
     }
 }
