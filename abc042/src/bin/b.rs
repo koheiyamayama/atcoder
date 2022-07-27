@@ -1,3 +1,13 @@
+use proconio::input;
+
 fn main() {
-    todo!();
+    input! {
+        n: usize,
+        l: usize,
+        mut s: [String; n]
+    }
+
+    s.sort();
+    let s = s.join("");
+    println!("{}", s)
 }
