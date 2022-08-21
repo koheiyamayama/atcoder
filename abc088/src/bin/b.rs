@@ -1,24 +1,24 @@
+use std::cmp::Reverse;
+
 use proconio::input;
 
 fn main() {
     input! {
-        n: i32,
-        mut a: [i32; n]
+        n: usize,
+        mut a: [usize; n]
     }
 
-    let mut alice: Vec<i32> = vec!();
-    let mut bob: Vec<i32> = vec!();
-    a.sort_by(|b, c| c.cmp(b) );
+    a.sort_by_key(|&m| Reverse(m));
+    let mut alice = 0;
+    let mut bob = 0;
 
-    let mut i = 1;
-    for number in a {
+    for i in 0..n {
         if i % 2 == 0 {
-            bob.push(number);
+            alice += a[i]
         } else {
-            alice.push(number);
+            bob += a[i]
         }
-        i += 1;
     }
 
-    println!("{}", alice.iter().sum::<i32>() - bob.iter().sum::<i32>());
+    println!("{}", alice - bob)
 }
