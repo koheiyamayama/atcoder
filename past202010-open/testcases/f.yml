@@ -1,0 +1,49 @@
+---
+type: Batch
+timelimit: 2s
+match: Lines
+
+cases:
+  - name: sample1
+    in: |
+      6 2
+      abcde
+      caac
+      abcde
+      caac
+      abc
+      caac
+    out: |
+      abcde
+  - name: sample2
+    in: |
+      9 3
+      a
+      a
+      bb
+      bb
+      a
+      ccc
+      bb
+      ccc
+      dddd
+    out: |
+      ccc
+  - name: sample3
+    in: |
+      7 2
+      caac
+      abcde
+      caac
+      abc
+      abcde
+      caac
+      abc
+    out: |
+      AMBIGUOUS
+
+extend:
+  - type: Text
+    path: "./f"
+    in: /in/*.txt
+    out: /out/*.txt
