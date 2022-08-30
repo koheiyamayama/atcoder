@@ -1,29 +1,37 @@
-use proconio::input;
+use proconio::{input, marker::Chars};
 
 fn main() {
     input! {
-        n: i64,
-        s: String
+        n: usize,
+        s: Chars
     }
 
-    let mut results = vec!();
+    let mut before = vec![vec![false; 26]; n];
+    let mut after = vec![vec![false; 26]; n];
+
     for i in 0..n {
-        let tmp_c = s.chars().collect::<Vec<_>>();
-        let (c1, c2) = tmp_c.split_at(i as usize);
-        let mut c1 = c1.to_vec();
-        c1.sort();
-        c1.dedup();
-        let mut c2 = c2.to_vec();
-        c2.sort();
-        c2.dedup();
+        // 前半
+        for j in 0..i {
+            before[i][s[j] as usize - 'a' as usize] = true;
+        }
+
+        // 後半
+        for k in i..n {
+            after[i][s[k] as usize - 'a' as usize] = true;
+        }
+    }
+
+    let mut ans = 0;
+    for i in 0..n {
         let mut count = 0;
-        for c in c1.iter() {
-            if c2.contains(c) {
+        for j in 0..26 {
+            if before[i][j] && after[i][j] {
                 count += 1;
             }
         }
-        results.push(count)
+
+        ans = ans.max(count);
     }
 
-    println!("{}", results.iter().max().unwrap())
+    println!("{}", ans)
 }
