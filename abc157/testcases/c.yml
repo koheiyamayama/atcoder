@@ -25,6 +25,35 @@ cases:
       1 0
     out: |
       -1
+  - name: sample4
+    in: |
+      3 5
+      1 0
+      2 1
+      3 2
+      3 3
+      3 2
+    out: |
+      -1
+  - name: sample3
+    in: |
+      2 2
+      1 2
+      2 1
+    out: |
+      21
+  - name: sample3
+    in: |
+      1 1
+      1 2
+    out: |
+      2
+  - name: sample3
+    in: |
+      1 1
+      1 0
+    out: |
+      0
 
 extend:
   - type: Text

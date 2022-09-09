@@ -6,12 +6,10 @@ fn main() {
         s: isize
     }
 
-    let mut count: isize = 0;
-
+    let mut count = 0;
     for x in 0..=k {
         for y in 0..=k {
-            let z = s - x - y;
-            if 0 <= z && z <= k {
+            if 0 <= s - (x + y) && s - (x + y) <= k {
                 count += 1;
             }
         }
@@ -19,7 +17,3 @@ fn main() {
 
     println!("{}", count)
 }
-
-// x + y + z = s
-// 0 + 1 + z = 2
-// z = 2 - 1 - 0

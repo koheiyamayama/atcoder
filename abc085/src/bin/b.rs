@@ -2,18 +2,21 @@ use proconio::input;
 
 fn main() {
     input! {
-        n: i32,
-        d: [i32; n]
+        n: usize,
+        d: [usize; n]
     }
 
-    let mut mochi: Vec<i32> = vec!();
+    let mut ans = vec![false; 100];
+    for i in 0..n {
+        ans[d[i] - 1] = true;
+    }
 
-    for number in d {
-        if mochi.contains(&number) {
-            continue;
+    let mut count = 0;
+    for i in 0..100 {
+        if ans[i] {
+            count += 1;
         }
-        mochi.push(number)
     }
 
-    println!("{}", mochi.len());
+    println!("{}", count)
 }
