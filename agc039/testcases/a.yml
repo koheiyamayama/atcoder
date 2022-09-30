@@ -1,0 +1,84 @@
+---
+type: Batch
+timelimit: 2s
+match: Lines
+
+cases:
+  - name: sample1
+    in: |
+      issii
+      2
+    out: |
+      4
+  - name: sample1
+    in: |
+      isisisisi
+      2
+    out: |
+      1
+  - name: sample2
+    in: |
+      qq
+      81
+    out: |
+      81
+  - name: sample3
+    in: |
+      cooooooooonteeeeeeeeeest
+      999993333
+    out: |
+      8999939997
+  - name: sample3
+    in: |
+      cooooooooonteeeeeeeeeest
+      1
+    out: |
+      9
+  - name: sample4
+    in: |
+      aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+      1000000000
+    out: |
+      50000000000
+  - name: sample4
+    in: |
+      baaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
+      1000000000
+    out: |
+      49999999999
+  - name: sample5
+    in: |
+      bab
+      3
+    out: |
+      2
+  - name: sample5
+    in: |
+      babbb
+      3
+    out: |
+      5
+  - name: sample5
+    in: |
+      bbabbb
+      3
+    out: |
+      6
+  - name: sample5
+    in: |
+      bbbabbb
+      3
+    out: |
+      8
+  - name: sample5
+    in: |
+      bab
+      1000000000
+    out: |
+      8
+
+extend:
+  - type: Text
+    path: "./a"
+    in: /in/*.txt
+    out: /out/*.txt
