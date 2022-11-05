@@ -10,6 +10,36 @@ cases:
       AABBBA
     out: |
       15
+  - name: sample1
+    in: |
+      6
+      AABBA
+    out: |
+      11
+  - name: sample1
+    in: |
+      5
+      AABA
+    out: |
+      9
+  - name: sample1
+    in: |
+      6
+      ABBBA
+    out: |
+      13
+  - name: sample1
+    in: |
+      5
+      ABBB
+    out: |
+      11
+  - name: sample1
+    in: |
+      7
+      ABBBBB
+    out: |
+      22
 
 extend:
   - type: Text

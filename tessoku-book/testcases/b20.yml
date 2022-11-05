@@ -22,6 +22,12 @@ cases:
       bdf
     out: |
       3
+  - name: sample4
+    in: |
+      import
+      input
+    out: |
+      3
 
 extend:
   - type: Text
